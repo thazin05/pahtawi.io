@@ -1229,7 +1229,6 @@
 				border-radius: 100%;
 				box-shadow: inset 0 0 0 2px #fff;
 				background: url("images/poptrox-closer.svg") center center;
-				color: #ffffff !important;
 			}
 
 		.poptrox-popup:hover .closer {
@@ -3427,6 +3426,7 @@
 		/*background: green;*/
 		padding-bottom: 3em;
 		box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
+		background: rgba(218, 247, 166, 0.9);
 	}
 
 		.poptrox-popup .loader {
@@ -4402,6 +4402,7 @@
 
 		#footer a {
 			color: inherit;
+			text-decoration: none;
 		}
 
 			#footer a:hover {
@@ -4716,4 +4717,97 @@
 			  line-height: 150px;
 			  text-align: center;
 			  transform: rotateY(180deg);
+			}
+
+			/*gallery images hover*/
+
+			/* Zoom Out #1 */
+			.gallery article {
+				background: rgb(46, 204, 113);
+			}
+			.gallery article img {
+				opacity: 1;
+				-webkit-transition: .3s ease-in-out;
+				transition: .3s ease-in-out;
+				padding: 2px;
+			}
+			.gallery article:hover img{
+				opacity: .5;
+			}
+
+			/*menu text hover animation*/
+			#header nav ul li a.animated-button:link, #header nav ul li a.animated-button:visited {
+			    position: relative;
+			    display: block;#header nav ul li a.animated-button:link, #header nav ul li a.animated-button:visited
+			    padding: 14px 15px;
+			    color: #fff;
+			    font-size:14px;
+			    font-weight: bold;
+			    text-align: center;
+			    text-decoration: none;
+			    text-transform: uppercase;
+			    overflow: hidden;
+			    letter-spacing: .08em;
+			    border-radius: 0;
+			    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+			    -webkit-transition: all 1s ease;
+			    -moz-transition: all 1s ease;
+			    -o-transition: all 1s ease;
+			    transition: all 1s ease;
+			}
+			#header nav ul li a.animated-button:link:after, #header nav ul li a.animated-button:visited:after {
+			    content: "";
+			    position: absolute;
+			    height: 0%;
+			    left: 50%;
+			    top: 50%;
+			    width: 150%;
+			    z-index: -1;
+			    -webkit-transition: all 0.75s ease 0s;
+			    -moz-transition: all 0.75s ease 0s;
+			    -o-transition: all 0.75s ease 0s;
+			    transition: all 0.75s ease 0s;
+			}
+			#header nav ul li a.animated-button:link:hover, #header nav ul li a.animated-button:visited:hover {
+			    color: #FFF;
+			    text-shadow: none;
+			}
+			#header nav ul li a.animated-button:link:hover:after, #header nav ul li a.animated-button:visited:hover:after {
+			    height: 450%;
+			}
+			#header nav ul li a.animated-button:link, #header nav ul li a.animated-button:visited {
+			    position: relative;
+			    display: block;
+			    /*#header nav ul li a.animated-button:link, #header nav ul li a.animated-button:visited*/
+			    /*padding: 14px 15px;*/
+			    color: #fff;
+			    font-size:14px;
+			    border-radius: 0;
+			    font-weight: 500;
+			    text-align: center;
+			    text-decoration: none;
+			    text-transform: uppercase;
+			    overflow: hidden;
+			    letter-spacing: .08em;
+			    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+			    -webkit-transition: all 1s ease;
+			    -moz-transition: all 1s ease;
+			    -o-transition: all 1s ease;
+			    transition: all 1s ease;
+			}
+			#header nav ul li a.animated-button.victoria-four {
+			    border: 1px solid #f2c367;
+			    margin: 20px auto 0;
+			}
+			#header nav ul li a.animated-button.victoria-four:after {
+			    background: #f2c367;
+			    opacity: .5;
+			    -moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+			    -ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+			    -webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+			    transform: translateY(-50%) translateX(-50%) rotate(90deg);
+			}
+			#header nav ul li a.animated-button.victoria-four:hover:after {
+			    opacity: 1;
+			    height: 600% !important;
 			}

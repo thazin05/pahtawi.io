@@ -24,13 +24,13 @@
 				<a href="#intro"><img src="images/logo.png" alt="PaHtawi"></a>
 				<nav>
 					<ul>
-						<li class="adj"><a href="#intro" class="effect5" data-hover="Home">Home</a></li>
-						<li><a href="#one" class="effect5" data-hover="About">About</a></li>
-						<li><a href="#two" class="effect5" data-hover="Services">Services</a></li>
-						<li><a href="#work" class="effect5" data-hover="Accessories">Accessories</a></li>
-						<li><a href="#flowerpots" class="effect5" data-hover="Flowerpots">Flowerpots</a></li>
-						<li><a href="#earthenwares" class="effect5" data-hover="Earthenwares">Earthenwares</a></li>
-						<li><a href="#contact" class="effect5" data-hover="Contact">Contact</a></li>
+						<li><a href="#intro" class="animated-button victoria-four">Home</a></li>
+						<li><a href="#one" class="animated-button victoria-four">About</a></li>
+						<li><a href="#two" class="animated-button victoria-four">Services</a></li>
+						<li><a href="#work" class="animated-button victoria-four">Accessories</a></li>
+						<li><a href="#flowerpots" class="animated-button victoria-four">Flowerpots</a></li>
+						<li><a href="#earthenwares" class="animated-button victoria-four">Earthenwares</a></li>
+						<li><a href="#contact" class="animated-button victoria-four">Contact</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -90,13 +90,13 @@
 				<!-- Gallery  -->
 					<div class="gallery">
 						<article class="from-left">
-							<a href="images/fulls/pic01.jpg" class="image fit"><img src="images/thumbs/pic01.jpg" title="PHW 110001" alt="" /></a>
+							<a href="images/fulls/pic01.png" class="image fit"><img src="images/thumbs/pic01.jpg" title="PHW 110001" alt="" /></a>
 						</article>
 						<article class="from-right">
-							<a href="images/fulls/pic02.jpg" class="image fit"><img src="images/thumbs/pic02.jpg" title="PHW 110002" alt="" /></a>
+							<a href="images/fulls/pic02.png" class="image fit"><img src="images/thumbs/pic02.jpg" title="PHW 110002" alt="" /></a>
 						</article>
 						<article class="from-left">
-							<a href="images/fulls/pic03.jpg" class="image fit"><img src="images/thumbs/pic03.jpg" title="PHW 420019" alt="" /></a>
+							<a href="images/fulls/pic03.png" class="image fit"><img src="images/thumbs/pic03.jpg" title="PHW 420019" alt="" /></a>
 						</article>
 						<article class="from-right">
 							<a href="images/fulls/pic04.jpg" class="image fit"><img src="images/thumbs/pic04.jpg" title="PHW 420021" alt="" /></a>
@@ -351,6 +351,43 @@
 			  }
 			}
             
+            //svg image chage color
+            /*
+			 * Replace all SVG images with inline SVG
+			 */
+			jQuery('img.svg').each(function(){
+			    var $img = jQuery(this);
+			    var imgID = $img.attr('id');
+			    var imgClass = $img.attr('class');
+			    var imgURL = $img.attr('src');
+
+			    jQuery.get(imgURL, function(data) {
+			        // Get the SVG tag, ignore the rest
+			        var $svg = jQuery(data).find('svg');
+
+			        // Add replaced image's ID to the new SVG
+			        if(typeof imgID !== 'undefined') {
+			            $svg = $svg.attr('id', imgID);
+			        }
+			        // Add replaced image's classes to the new SVG
+			        if(typeof imgClass !== 'undefined') {
+			            $svg = $svg.attr('class', imgClass+' replaced-svg');
+			        }
+
+			        // Remove any invalid XML tags as per http://validator.w3.org
+			        $svg = $svg.removeAttr('xmlns:a');
+
+			        // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+			        if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+			            $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+			        }
+
+			        // Replace image with new SVG
+			        $img.replaceWith($svg);
+
+			    }, 'xml');
+
+			});
         </script>
 	</body>
 </html>
